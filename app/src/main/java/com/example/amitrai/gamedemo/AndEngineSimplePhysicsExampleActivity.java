@@ -83,7 +83,8 @@ public class AndEngineSimplePhysicsExampleActivity extends BaseGameActivity impl
 
 		// Create our scene
 		this.mScene = new Scene();
-		this.mScene.setBackground(new ColorBackground(1f, 1f, 1f));
+//		this.mScene.setBackground(new ColorBackground(1f, 1f, 1f));
+		this.mScene.setBackground(new ColorBackground(0.09804f, 0.6274f, 0.8784f));
 		// Create our physics world
 		this.physicsWorld = new PhysicsWorld(new Vector2(0, 80), false);
 
@@ -92,6 +93,7 @@ public class AndEngineSimplePhysicsExampleActivity extends BaseGameActivity impl
 
 		// Enable the accelerometer and bind our own onAccelerometerChanged() method as listener for events
 		this.mEngine.enableAccelerometerSensor(this, this);
+		this.mEngine.enableVibrator(this);
 
 		// Create walls around our scene
 		createWalls();
@@ -135,10 +137,11 @@ public class AndEngineSimplePhysicsExampleActivity extends BaseGameActivity impl
 	}
 
 	public void onAccelerometerChanged(final AccelerometerData pAccelerometerData) {
-		final Vector2 gravity = Vector2Pool.obtain(pAccelerometerData.getX()/2,
-			pAccelerometerData.getY()/2);
+		final Vector2 gravity = Vector2Pool.obtain(pAccelerometerData.getX(),
+			pAccelerometerData.getY());
 		this.physicsWorld.setGravity(gravity);
 		Vector2Pool.recycle(gravity);
+
 	}
 
 
