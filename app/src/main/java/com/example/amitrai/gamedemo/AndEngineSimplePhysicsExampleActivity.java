@@ -1,7 +1,5 @@
 package com.example.amitrai.gamedemo;
 
-import android.hardware.SensorManager;
-
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.BodyDef.BodyType;
@@ -87,7 +85,7 @@ public class AndEngineSimplePhysicsExampleActivity extends BaseGameActivity impl
 		this.mScene = new Scene();
 		this.mScene.setBackground(new ColorBackground(1f, 1f, 1f));
 		// Create our physics world
-		this.physicsWorld = new PhysicsWorld(new Vector2(0, SensorManager.GRAVITY_EARTH), false);
+		this.physicsWorld = new PhysicsWorld(new Vector2(0, 80), false);
 
 		// Register our physics world to update our scene
 		this.mScene.registerUpdateHandler(this.physicsWorld);
